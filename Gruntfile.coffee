@@ -13,7 +13,7 @@ gruntFunction = (grunt) ->
     typescript:
       base:
         src: ['<%= build.src %>/scripts/**/*.ts']
-        dest: '<%= build.dest.dev %>/js/main.js'
+        dest: '<%= build.dest.dev %>/scripts/main.js'
         options:
           module: 'ams'
           target: 'es3'
@@ -29,7 +29,7 @@ gruntFunction = (grunt) ->
           expand: true
           cwd: '<%= build.src %>/styles'
           src:  '{,**/}*.sass'
-          dest: '<%= build.dest.dev %>/css'
+          dest: '<%= build.dest.dev %>/styles'
           ext: '.css'
         ]
     
@@ -84,18 +84,27 @@ gruntFunction = (grunt) ->
       js:
         files: [
           expand: true
-          cwd: '<%= build.src %>/js'
+          cwd: '<%= build.src %>/scripts'
           src: ['*.js']
-          dest: '<%=  build.dest.dev %>/js'
+          dest: '<%=  build.dest.dev %>/scripts'
+          ext: '.js'
+        ]
+
+      vendors:
+        files: [
+          expand: true
+          cwd: '<%= build.src %>/scripts/vendors'
+          src: ['**/*.js']
+          dest: '<%=  build.dest.dev %>/scripts/vendors'
           ext: '.js'
         ]
       
       css:
         files: [
           expand: true
-          cwd: '<%= build.src %>/css'
+          cwd: '<%= build.src %>/styles'
           src: ['*.css']
-          dest: '<%=  build.dest.dev %>/css'
+          dest: '<%=  build.dest.dev %>/styles'
           ext: '.css'
         ]
       
@@ -122,6 +131,7 @@ gruntFunction = (grunt) ->
     'typescript'
     'sass'
     'copy:html'
+    'copy:vendors'
     'connect:dev'
     'watch'
   ])
