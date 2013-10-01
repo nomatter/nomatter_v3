@@ -1,0 +1,33 @@
+{
+  "name": "nomatter_v3",
+  "version": "0.0.0",
+  "description": "nomatter's personal website",
+  "main": "Gruntfile.coffee",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomatter/nomatter_v3.git"
+  },
+  "keywords": [
+    "nomatter",
+    "website"
+  ],
+  "author": "nicolas Schiro (nomatter)",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/nomatter/nomatter_v3/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-typescript": "~0.2.4",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "typescript": "~0.9.1-1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.5.0"
+  }
+}
