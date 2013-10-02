@@ -54,6 +54,12 @@ gruntFunction = (grunt) ->
       html:
         files: ['<%= build.src %>/{,**/}*.html']
         tasks: ['copy:html']
+      vendors:
+        files: ['<%= build.src %>/scripts/vendors/{,**/}*.js']
+        tasks: ['copy:vendors']
+      fonts:
+        files: ['<%= build.src %>/scripts/fonts/{,**/}*.typeface.js']
+        tasks: ['copy:fonts']
       typescript:
         files: ['<%= build.src %>/scripts/{,**/}*.ts']
         tasks: ['typescript']
@@ -98,6 +104,15 @@ gruntFunction = (grunt) ->
           dest: '<%=  build.dest.dev %>/scripts/vendors'
           ext: '.js'
         ]
+
+      fonts:
+        files: [
+          expand: true
+          cwd: '<%= build.src %>/scripts/fonts'
+          src: ['**/*.js']
+          dest: '<%=  build.dest.dev %>/scripts/fonts'
+          ext: '.typeface.js'
+        ]
       
       css:
         files: [
@@ -132,6 +147,7 @@ gruntFunction = (grunt) ->
     'sass'
     'copy:html'
     'copy:vendors'
+    'copy:fonts'
     'connect:dev'
     'watch'
   ])
